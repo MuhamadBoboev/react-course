@@ -1,0 +1,20 @@
+.navbar {
+  background-color: rgb(212, 161, 161);
+  height: max-content;
+  padding-bottom: 50px;
+}
+.navbar__body {
+  padding: 15px;
+}
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 3px;
+}
+.navbar__link-href {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 3px 0;
+
+  display: block;
+}

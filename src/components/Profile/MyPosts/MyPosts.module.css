@@ -1,0 +1,37 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+}
+.post__content {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  align-items: flex-end;
+}
+.post__bl-input {
+  display: block;
+  height: 50px;
+  height: 100%;
+  width: 100%;
+}
+.post__input {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: auto;
+  padding: 10px 15px;
+}
+.post__ul {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+}
+
+.btn {
+  background-color: aquamarine;
+  width: max-content;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  color: black;
+}
