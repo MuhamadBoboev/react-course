@@ -1,3 +1,35 @@
+.profile {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 15px;
+}
+.profile__data {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+}
+.profile__bl-info {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2px;
+}
+.profile__info {
+  width: 100%;
+  padding: 3px 0;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+}
+.post__content {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+  align-items: flex-end;
+}
+.profile__li {
+}
 .post__bl-input {
   display: block;
   height: 50px;

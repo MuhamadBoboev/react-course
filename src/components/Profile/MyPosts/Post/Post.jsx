@@ -11,6 +11,7 @@ const Post = (props) => {
       <div className={s["post__bl-text"]}>
         <p className={s.post__text}>{props.message}</p>
       </div>
+      <div className="post__likes">{props.likesCount}</div>
     </li>
   );
 };

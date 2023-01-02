@@ -15,6 +15,13 @@
   color: rgb(255, 255, 255);
   font-size: 20px;
   padding: 3px 0;
-
   display: block;
+}
+
+.navbar__link-href:active {
+  background-color: aquamarine;
+}
+
+.navbar__link a.activeLink {
+  background-color: red;
 }

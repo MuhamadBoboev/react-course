@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -7,30 +8,34 @@ const Navbar = () => {
       <div className={s.navbar__body}>
         <ul className={s.navbar__links}>
           <li className={s.navbar__link}>
-            <a href="Profile" className={s["navbar__link-href"]}>
+            <NavLink
+              to="./profile"
+              className={s["navbar__link-href"]}
+              activeClassName={"activeLink"}
+            >
               Profile
-            </a>
+            </NavLink>
           </li>
           <li className={s.navbar__link}>
-            <a href="Messeges" className={s["navbar__link-href"]}>
+            <NavLink to="./dialogs" className={s["navbar__link-href"]}>
               Messages
-            </a>
+            </NavLink>
           </li>
           <li className={s.navbar__link}>
-            <a href="News" className={s["navbar__link-href"]}>
+            <NavLink to="News" className={s["navbar__link-href"]}>
               News
-            </a>
+            </NavLink>
           </li>
           <li className={s.navbar__link}>
-            <a href="Music" className={s["navbar__link-href"]}>
+            <NavLink to="Music" className={s["navbar__link-href"]}>
               Music
-            </a>
+            </NavLink>
           </li>
           <br></br>
           <li className={s.navbar__link}>
-            <a href="Setting" className={s["navbar__link-href"]}>
+            <NavLink to="Setting" className={s["navbar__link-href"]}>
               Setting
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>
