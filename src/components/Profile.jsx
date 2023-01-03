@@ -4,8 +4,7 @@ import prof from "../prof.gif";
 import s from "./Profile.module.css";
 import MyPosts from "./Profile/MyPosts/MyPosts";
 import ProfileInfo from "./Profile/ProfileInfo/ProfileInfo";
-
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className="content">
       <div className="content__bl-img">
@@ -13,7 +12,7 @@ const Profile = () => {
       </div>
 
       <ProfileInfo />
-      <MyPosts />
+      <MyPosts state={props.appState} addPost={props.addPost} />
     </div>
   );
 };
