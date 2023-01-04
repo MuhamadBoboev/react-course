@@ -10,10 +10,12 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
   let addPostElement = () => {
+    props.addPost();
+    newPostElement.current.value = "";
+  };
+  let onPostChange = () => {
     let text = newPostElement.current.value;
-
-    props.addPost(text);
-    alert(text);
+    props.updateNewPost(text);
   };
   return (
     <div className={s.post}>
@@ -21,18 +23,15 @@ const MyPosts = (props) => {
       <div className={s.post__content}>
         <div className={s["post__bl-input"]}>
           <input
+            onChange={onPostChange}
             ref={newPostElement}
             className={s.post__input}
             placeholder="your news"
           ></input>
         </div>
-        <a
-          onClick={addPostElement}
-          href="#"
-          className={`${s.btn} ${s.btn__post}`}
-        >
+        <div onClick={addPostElement} className={`${s.btn} ${s.btn__post}`}>
           Send
-        </a>
+        </div>
       </div>
       <ul className={s.post__ul}>{postsElements}</ul>
     </div>
