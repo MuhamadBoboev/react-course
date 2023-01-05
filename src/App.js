@@ -26,8 +26,7 @@ function App(props) {
                       element={
                         <Profile
                           appState={props.state.profilePage}
-                          updateNewPost={props.updateNewPost}
-                          addPost={props.addPost}
+                          dispatch={props.dispatch}
                         />
                       }
                     ></Route>
