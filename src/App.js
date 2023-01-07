@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { updateNewPost } from "./redux/state";
+import { updateNewPost } from "./redux/store";
 
 // import "./img/fon";
 function App(props) {
@@ -32,7 +32,12 @@ function App(props) {
                     ></Route>
                     <Route
                       path="dialogs"
-                      element={<Dialogs appState={props.state.dialogsPage} />}
+                      element={
+                        <Dialogs
+                          appState={props.state.dialogsPage}
+                          store={props.store}
+                        />
+                      }
                     ></Route>
                   </Routes>
                 </div>

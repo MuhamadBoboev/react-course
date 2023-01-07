@@ -24,6 +24,9 @@
   /* background-color: red; */
 }
 .dialog__right {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
 }
 .d-messages {
   display: flex;
@@ -32,4 +35,10 @@
 }
 .d-message {
   color: rgb(170, 0, 0);
+}
+.dialog__right__send_text {
+  box-sizing: border-box;
+  width: 100%;
+  height: max-content;
+  padding: 4px;
 }
