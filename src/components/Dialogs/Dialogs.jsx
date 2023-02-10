@@ -9,9 +9,11 @@ import s from "./Dialogs.module.css";
 import Message from "./Messages/message";
 
 const Dialogs = (props) => {
+  debugger;
   let dialogsElements = props.appState.dialogs.map((el) => (
     <Dialog id={el.id} name={el.name}></Dialog>
   ));
+  debugger;
   let messagesElements = props.appState.messages.map((el) => (
     <Message id={el.id} message={el.message} />
   ));
