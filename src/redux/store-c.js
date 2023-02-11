@@ -1,12 +1,6 @@
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST";
-
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MASSAGE = "UPDATE-NEW-MASSAGE";
-
 const store = {
   _state: {
     dialogsPage: {

@@ -9,24 +9,23 @@ import s from "./Dialogs.module.css";
 import Message from "./Messages/message";
 
 const Dialogs = (props) => {
-  debugger;
-  let dialogsElements = props.appState.dialogs.map((el) => (
+  let dialogsElements = props.store.dialogs.map((el) => (
     <Dialog id={el.id} name={el.name}></Dialog>
   ));
-  debugger;
-  let messagesElements = props.appState.messages.map((el) => (
+
+  let messagesElements = props.store.messages.map((el) => (
     <Message id={el.id} message={el.message} />
   ));
 
-  let newMessageBody = props.appState.newMessageText;
+  let newMessageBody = props.store.newMessageText;
 
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     // props;
-    props.store.dispatch(updateNewMessageBodyCreator(body));
+    props.dispatch(updateNewMessageBodyCreator(body));
   };
   let onSendNewMessageClick = (e) => {
-    props.store.dispatch(sendMessageCreator());
+    props.dispatch(sendMessageCreator());
   };
   return (
     <div className={s.dialogs}>

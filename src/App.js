@@ -10,7 +10,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import "./img/fon";
 function App(props) {
-  console.log(props);
   return (
     <BrowserRouter>
       <div className="App">
@@ -34,7 +33,10 @@ function App(props) {
                     <Route
                       path="dialogs"
                       element={
-                        <Dialogs appState={props.store} store={props.store} />
+                        <Dialogs
+                          store={props.state.dialogsPage}
+                          dispatch={props.dispatch}
+                        />
                       }
                     ></Route>
                   </Routes>
