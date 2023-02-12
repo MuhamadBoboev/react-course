@@ -8,19 +8,19 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let postsElements = props.state.posts.map((el) => (
+  let postsElements = props.posts.map((el) => (
     <Post message={el.message} likesCount={el.likesCount} />
   ));
 
   let newPostElement = React.createRef();
   let addPostElement = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPostElement();
+    // console.log("asd");
     newPostElement.current.value = "";
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.onPostChanged(text);
   };
   return (
     <div className={s.post}>
