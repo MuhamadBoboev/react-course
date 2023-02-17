@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
   sendMessageCreator,
@@ -35,4 +36,28 @@ const DialogsContainer = (props) => {
   );
 };
 
-export default DialogsContainer;
+const mapStateToProps = (state) => {
+  // debugger;
+  return {
+    dialogs: state.dialogsPage.dialogs,
+    messages: state.dialogsPage.messages,
+    newMessageText: state.dialogsPage.newMessageText,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onNewMessageChange: (body) => {
+      dispatch(updateNewMessageBodyCreator(body));
+    },
+    onSendNewMessageClick: () => {
+      dispatch(sendMessageCreator());
+    },
+  };
+};
+
+const superDialogsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dialogs);
+
+export default superDialogsContainer;

@@ -17,7 +17,7 @@ function App(props) {
               <Navbar />
               <div className="main-content">
                 <Routes>
-                  {/* <Route path="profile" element={<Profile />}></Route> */}
+                  <Route path="profile" element={<Profile />}></Route>
                   <Route path="dialogs" element={<DialogsContainer />}></Route>
                 </Routes>
               </div>
