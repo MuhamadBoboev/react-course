@@ -33,6 +33,12 @@ const Navbar = () => {
           </li>
           <br></br>
           <li className={s.navbar__link}>
+            <NavLink to="users" className={s["navbar__link-href"]}>
+              Users
+            </NavLink>
+          </li>
+          <br></br>
+          <li className={s.navbar__link}>
             <NavLink to="Setting" className={s["navbar__link-href"]}>
               Setting
             </NavLink>

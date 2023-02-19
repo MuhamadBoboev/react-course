@@ -37,7 +37,6 @@ const DialogsContainer = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  // debugger;
   return {
     dialogs: state.dialogsPage.dialogs,
     messages: state.dialogsPage.messages,
