@@ -1,0 +1,14 @@
+.pages {
+  display: flex;
+  grid-gap: 10px;
+}
+.page_count {
+  font-weight: 20px;
+  font-size: 44px;
+  cursor: pointer;
+  background-color: aquamarine;
+  font-family: "Times New Roman", Times, serif;
+}
+.selected {
+  color: red;
+}
