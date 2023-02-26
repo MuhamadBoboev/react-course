@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import {
-  currentPageAC,
-  followAC,
-  pageSizeAC,
-  totalUserCountAC,
-  unfollowAC,
-  usersAC,
+  currentPageFn,
+  follow,
+  pageSizeFn,
+  setIsFetching,
+  totalUserCountFn,
+  unfollow,
+  usersAdd,
 } from "../../redux/users-reducer";
-import UsersC from "./UsersC";
+import UsersComponenta from "./UsersComponenta";
 
 const mapStateToProps = (state) => {
   return {
@@ -15,33 +16,45 @@ const mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     totalUserCount: state.usersPage.totalUserCount,
     currentPage: state.usersPage.currentPage,
+    isFetching: state.usersPage.isFetching,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     unfollow: (userId) => {
       {
-        dispatch(unfollowAC(userId));
+        dispatch(unfollow(userId));
       }
     },
     follow: (userId) => {
-      dispatch(followAC(userId));
+      dispatch(follow(userId));
     },
     usersAdd: (users) => {
-      dispatch(usersAC(users));
+      dispatch(usersAdd(users));
     },
     pageSizeFn: (pages) => {
-      dispatch(pageSizeAC(pages));
+      dispatch(pageSizeFn(pages));
     },
     totalUserCountFn: (count) => {
-      dispatch(totalUserCountAC(count));
+      dispatch(totalUserCountFn(count));
     },
     currentPageFn: (page) => {
-      dispatch(currentPageAC(page));
+      dispatch(currentPageFn(page));
+    },
+    setIsFetching: (page) => {
+      dispatch(setIsFetching(page));
     },
   };
 };
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersC);
+const UsersContainer = connect(mapStateToProps, {
+  unfollow: unfollow,
+  follow: follow,
+  usersAdd: usersAdd,
+  pageSizeFn: pageSizeFn,
+  totalUserCountFn: totalUserCountFn,
+  currentPageFn: currentPageFn,
+  setIsFetching: setIsFetching,
+})(UsersComponenta);
 
 export default UsersContainer;

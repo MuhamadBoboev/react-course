@@ -1,32 +1,32 @@
 import React from "react";
 import s from "./style.module.css";
-import axios from "axios";
-// props.usersAdd([
-// {
-//   id: 1,
-//   urlPhoto:
-//     "https://avatars.mds.yandex.net/i?id=f6419d2d294cab1c91e9e3f5aaf8c74cd527bbd2-8496937-images-thumbs&n=13&exp=1",
-//   followed: true,
-//   fullName: "Kiril",
-//   status: "I am a king",
-//   location: {
-//     country: "Belarus",
-//     city: "Minsk",
-//   },
-// }
 
-// ]);
 const Users = (props) => {
-  if (props.users.length === 0) {
-    alert("sad");
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        props.usersAdd(response.data.items);
-      });
+  let a = Math.ceil(props.totalUserCount / props.pageSize);
+  let mass = [];
+  for (let i = 1; i <= a; i++) {
+    mass.push(i);
   }
   return (
     <div className={s["users-section"]}>
+      <div className={s.page_block}>
+        <ul className={s.pages}>
+          {mass.map((el) => {
+            return (
+              <li
+                onClick={(e) => {
+                  props.onPageTarget(el);
+                }}
+                className={`${props.currentPage === el && s.selected} ${
+                  s.page_count
+                }`}
+              >
+                {el}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       <ul className={s.users}>
         {props.users.map((el) => (
           <li className={s.user}>
@@ -35,11 +35,11 @@ const Users = (props) => {
                 <div className="block-foto">
                   <img
                     src={
-                      "https://avatars.mds.yandex.net/i?id=f6419d2d294cab1c91e9e3f5aaf8c74cd527bbd2-8496937-images-thumbs&n=13&exp=1"
+                      el.photos.small != null
+                        ? el.photos.small
+                        : "https://avatars.mds.yandex.net/i?id=f6419d2d294cab1c91e9e3f5aaf8c74cd527bbd2-8496937-images-thumbs&n=13&exp=1"
                     }
-                    className="user-foto"
-                    width={50}
-                    height={50}
+                    className={s["user-foto"]}
                   ></img>
                 </div>
                 <div className="user-follow__block">
