@@ -1,9 +1,7 @@
 import React from "react";
-import fon from "../fon.jpg";
-import prof from "../prof.gif";
-import s from "./Profile.module.css";
-import MyPostsContainer from "./Profile/MyPosts/MyPostsContainer";
-import ProfileInfo from "./Profile/ProfileInfo/ProfileInfo";
+import fon from "../../fon.jpg";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props) => {
   return (
     <div className="content">

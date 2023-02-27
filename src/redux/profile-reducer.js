@@ -12,6 +12,8 @@ let initialState = {
     { message: "Hey, why nobody love me?", likesCount: 200 },
   ],
   newPostText: "asd",
+  profile: null,
+  map: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -39,6 +41,9 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.text,
       };
     }
+    case "MAP_ADD": {
+      return { ...state, map: action.map };
+    }
     default:
       return state;
   }
@@ -47,6 +52,11 @@ export const addPostActionCreator = () => ({ type: "ADD-POST" });
 export const updateNewPostTextActionCreator = (text) => ({
   type: "UPDATE-NEW-POST",
   text: text,
+});
+
+export const mapAdd = (map) => ({
+  type: "MAP_ADD",
+  map,
 });
 
 export default profileReducer;
