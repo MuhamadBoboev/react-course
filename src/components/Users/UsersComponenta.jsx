@@ -1,15 +1,13 @@
 import React from "react";
 
-import axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import { usersApi } from "../../api/api";
 class UsersComponenta extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.pageSize}&count=${this.props.pageSize}`
-      )
+    usersApi
+      .getUsers(this.props.pageSize, this.props.pageSize)
       .then((response) => {
         this.props.usersAdd(response.data.items);
         this.props.totalUserCountFn(response.data.totalCount);
@@ -19,14 +17,10 @@ class UsersComponenta extends React.Component {
   onPageTarget = (e) => {
     this.props.currentPageFn(e);
     this.props.setIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${e}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.usersAdd(response.data.items);
-        this.props.setIsFetching(false);
-      });
+    usersApi.getUsers(e, this.props.pageSize).then((response) => {
+      this.props.usersAdd(response.data.items);
+      this.props.setIsFetching(false);
+    });
   };
 
   render() {

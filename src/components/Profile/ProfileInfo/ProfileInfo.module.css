@@ -11,6 +11,7 @@
 .profile__bl-info {
   display: flex;
   flex-direction: column;
+  width: 100%;
   grid-gap: 2px;
 }
 .profile__info {
@@ -28,7 +29,18 @@
   grid-gap: 15px;
   align-items: flex-end;
 }
+.profile__info {
+  /* font-size: 20px;
+  font-weight: 500; */
+}
 .profile__li {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  /* display: flex;
+  justify-content: space-between; */
+  align-items: center;
 }
 .post__bl-input {
   display: block;

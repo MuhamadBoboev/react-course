@@ -13,7 +13,7 @@ let initialState = {
   ],
   newPostText: "asd",
   profile: null,
-  map: null,
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -41,8 +41,8 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.text,
       };
     }
-    case "MAP_ADD": {
-      return { ...state, map: action.map };
+    case "SET_ADD": {
+      return { ...state, profile: action.profile };
     }
     default:
       return state;
@@ -54,9 +54,9 @@ export const updateNewPostTextActionCreator = (text) => ({
   text: text,
 });
 
-export const mapAdd = (map) => ({
-  type: "MAP_ADD",
-  map,
+export const profileAdd = (profile) => ({
+  type: "SET_ADD",
+  profile,
 });
 
 export default profileReducer;

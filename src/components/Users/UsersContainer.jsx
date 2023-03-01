@@ -19,33 +19,6 @@ const mapStateToProps = (state) => {
     isFetching: state.usersPage.isFetching,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    unfollow: (userId) => {
-      {
-        dispatch(unfollow(userId));
-      }
-    },
-    follow: (userId) => {
-      dispatch(follow(userId));
-    },
-    usersAdd: (users) => {
-      dispatch(usersAdd(users));
-    },
-    pageSizeFn: (pages) => {
-      dispatch(pageSizeFn(pages));
-    },
-    totalUserCountFn: (count) => {
-      dispatch(totalUserCountFn(count));
-    },
-    currentPageFn: (page) => {
-      dispatch(currentPageFn(page));
-    },
-    setIsFetching: (page) => {
-      dispatch(setIsFetching(page));
-    },
-  };
-};
 
 const UsersContainer = connect(mapStateToProps, {
   unfollow: unfollow,
@@ -58,3 +31,31 @@ const UsersContainer = connect(mapStateToProps, {
 })(UsersComponenta);
 
 export default UsersContainer;
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     unfollow: (userId) => {
+//       {
+//         dispatch(unfollow(userId));
+//       }
+//     },
+//     follow: (userId) => {
+//       dispatch(follow(userId));
+//     },
+//     usersAdd: (users) => {
+//       dispatch(usersAdd(users));
+//     },
+//     pageSizeFn: (pages) => {
+//       dispatch(pageSizeFn(pages));
+//     },
+//     totalUserCountFn: (count) => {
+//       dispatch(totalUserCountFn(count));
+//     },
+//     currentPageFn: (page) => {
+//       dispatch(currentPageFn(page));
+//     },
+//     setIsFetching: (page) => {
+//       dispatch(setIsFetching(page));
+//     },
+//   };
+// };
