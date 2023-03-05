@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./style.module.css";
@@ -11,6 +9,7 @@ const Users = (props) => {
   for (let i = 1; i <= a; i++) {
     mass.push(i);
   }
+  // debugger;
   return (
     <div className={s["users-section"]}>
       <div className={s.page_block}>
@@ -51,24 +50,35 @@ const Users = (props) => {
                 <div className="user-follow__block">
                   {el.followed ? (
                     <button
+                      disabled={props.followingInProgress.some((id) => {
+                        return id === el.id;
+                      })}
                       onClick={() => {
-                        followingApi.deleteFollowing(el.id).then((response) => {
-                          if (response.data.resultCode == 0) {
-                            props.unfollow(el.id);
-                          }
-                        });
+                        props.followTh(el.id);
+                        // followingApi.deleteFollowing(el.id).then((response) => {
+                        //   if (response.data.resultCode == 0) {
+                        //     props.unfollow(el.id);
+                        //   }
+                        //   props.toggleFolowingInProgress(false, el.id);
+                        // });
                       }}
                     >
                       unfollow
                     </button>
                   ) : (
                     <button
+                      disabled={props.followingInProgress.some((id) => {
+                        return id === el.id;
+                      })}
                       onClick={() => {
-                        followingApi.postFollowing(el.id).then((response) => {
-                          if (response.data.resultCode == 0) {
-                            props.follow(el.id);
-                          }
-                        });
+                        props.unfollowTh(el.id);
+                        // props.toggleFolowingInProgress(true, el.id);
+                        // followingApi.postFollowing(el.id).then((response) => {
+                        //   if (response.data.resultCode == 0) {
+                        //     props.follow(el.id);
+                        //   }
+                        //   props.toggleFolowingInProgress(false, el.id);
+                        // });
                       }}
                     >
                       follow

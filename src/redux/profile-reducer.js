@@ -1,3 +1,5 @@
+import { profileApi } from "../api/api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 
@@ -12,7 +14,6 @@ let initialState = {
     { message: "Hey, why nobody love me?", likesCount: 200 },
   ],
   newPostText: "asd",
-  profile: null,
   profile: null,
 };
 
@@ -58,5 +59,12 @@ export const profileAdd = (profile) => ({
   type: "SET_ADD",
   profile,
 });
+export const profileAPI =
+  (userId = 2) =>
+  (dispatch) => {
+    return profileApi.getProfile(userId).then((response) => {
+      dispatch(profileAdd(response.data));
+    });
+  };
 
 export default profileReducer;

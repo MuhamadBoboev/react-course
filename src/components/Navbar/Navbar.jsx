@@ -39,6 +39,11 @@ const Navbar = () => {
           </li>
           <br></br>
           <li className={s.navbar__link}>
+            <NavLink to="login" className={s["navbar__link-href"]}>
+              Login
+            </NavLink>
+          </li>
+          <li className={s.navbar__link}>
             <NavLink to="Setting" className={s["navbar__link-href"]}>
               Setting
             </NavLink>

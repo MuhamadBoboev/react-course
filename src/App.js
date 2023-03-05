@@ -8,6 +8,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import { Routes, Route } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/LoginContainer";
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
                   ></Route>
                   <Route path="dialogs" element={<DialogsContainer />}></Route>
                   <Route path="users" element={<UsersContainer />}></Route>
+                  <Route path="login" element={<Login />}></Route>
                 </Routes>
               </div>
             </div>
