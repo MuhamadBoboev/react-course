@@ -21,9 +21,17 @@ function App() {
               <div className="main-content">
                 <Routes>
                   <Route
-                    path="profile/:userID"
+                    path={`profile/`}
                     element={<ProfileContainer />}
                   ></Route>
+                  <Route
+                    path={`profile/:userID`}
+                    element={<ProfileContainer />}
+                  ></Route>
+                  {/* <Route
+                    path={`profile/:userID`}
+                    element={<ProfileContainer />}
+                  ></Route> */}
                   <Route path="dialogs" element={<DialogsContainer />}></Route>
                   <Route path="users" element={<UsersContainer />}></Route>
                   <Route path="login" element={<Login />}></Route>

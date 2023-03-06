@@ -1,40 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
 } from "../../redux/dialogs-reducer";
 import StoreContext from "../../StoreContext";
-import Dialog from "./DialogItem/Dialog";
 import Dialogs from "./Dialogs";
-import s from "./Dialogs.module.css";
-import Message from "./Messages/message";
-
-const DialogsContainer = (props) => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState().dialogsPage;
-        let onNewMessageChange = (body) => {
-          store.dispatch(updateNewMessageBodyCreator(body));
-        };
-        let onSendNewMessageClick = () => {
-          store.dispatch(sendMessageCreator());
-        };
-        return (
-          <Dialogs
-            dialogs={state.dialogs}
-            messages={state.messages}
-            newMessageText={state.newMessageText}
-            onNewMessageChange={onNewMessageChange}
-            onSendNewMessageClick={onSendNewMessageClick}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
-};
 
 const mapStateToProps = (state) => {
   return {
@@ -54,9 +27,77 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const superDialogsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
 )(Dialogs);
 
-export default superDialogsContainer;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+//
+//
+//
+//
+//
+
+//
+// let AuthRedirectComponenta = withAuthRedirect(Dialogs);
+
+// const superDialogsContainer = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(AuthRedirectComponenta);
+
+//
+// const DialogsContainer = (props) => {
+//   return (
+//     <StoreContext.Consumer>
+//       {(store) => {
+//         let state = store.getState().dialogsPage;
+//         let onNewMessageChange = (body) => {
+//           store.dispatch(updateNewMessageBodyCreator(body));
+//         };
+//         let onSendNewMessageClick = () => {
+//           store.dispatch(sendMessageCreator());
+//         };
+//         return (
+//           <Dialogs
+//             dialogs={state.dialogs}
+//             messages={state.messages}
+//             newMessageText={state.newMessageText}
+//             onNewMessageChange={onNewMessageChange}
+//             onSendNewMessageClick={onSendNewMessageClick}
+//           />
+//         );
+//       }}
+//     </StoreContext.Consumer>
+//   );
+// };

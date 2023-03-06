@@ -9,45 +9,30 @@ const instance = axios.create({
 });
 export const usersApi = {
   getUsers(pageSize, totalUserCount) {
-    return instance.get(`users?page=${pageSize}&count=${totalUserCount}`, {
-      withCredentials: true,
-    });
+    return instance.get(`users?page=${pageSize}&count=${totalUserCount}`);
   },
 };
 export const authApi = {
   getAuthApi() {
-    return instance.get(`auth/me`, {
-      withCredentials: true,
-    });
+    return instance.get(`auth/me`);
   },
 };
 export const securityApi = {
   getUsers(pageSize, totalUserCount) {
-    return instance.get(`users?page=${pageSize}&count=${totalUserCount}`, {
-      withCredentials: true,
-    });
+    return instance.get(`users?page=${pageSize}&count=${totalUserCount}`);
   },
 };
 export const profileApi = {
-  getProfile(userId) {
-    return instance.get(`profile/${userId}`, {
-      withCredentials: true,
-    });
+  getProfile(userId = 27491) {
+    // console.log(userId);
+    return instance.get(`profile/${userId}`);
   },
 };
 export const followingApi = {
   deleteFollowing(userId) {
-    return instance.delete(`follow/${userId}`, {
-      withCredentials: true,
-    });
+    return instance.delete(`follow/${userId}`);
   },
   postFollowing(userId) {
-    return instance.post(
-      `follow/${userId}`,
-      {},
-      {
-        withCredentials: true,
-      }
-    );
+    return instance.post(`follow/${userId}`, {});
   },
 };
