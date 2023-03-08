@@ -10,6 +10,7 @@ let reducers = combineReducers({
   dialogsPage: dialogsReducer,
   usersPage: usersReducer,
   auth: authReducer,
+  // form: Formik,
 });
 const store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));
 

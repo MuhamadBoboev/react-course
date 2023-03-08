@@ -1,23 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { profileAdd, profileAPI } from "./../../redux/profile-reducer";
+import {
+  profileAdd,
+  profileAPI,
+  getStatusAPI,
+  updateStatusAPI,
+} from "./../../redux/profile-reducer";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.router.params.userID;
+    if (!userId) {
+      userId = 28181;
+    }
     this.props.profileAPI(userId);
+    this.props.getStatusAPI(userId);
   }
   render() {
-    if (!this.props.auth.isAuth) return <Navigate to="/login"></Navigate>;
-    return <Profile {...this.props} profile={this.props.profile} />;
+    return (
+      <Profile
+        {...this.props}
+        profile={this.props.profile}
+        status={this.props.status}
+        updateStatusAPI={this.props.updateStatusAPI}
+      />
+    );
   }
 }
 const mapStateToProps = (props) => ({
   profile: props.profilePage.profile,
-  auth: props.auth,
+  status: props.profilePage.status,
 });
 
 function withRouter(Component) {
@@ -30,6 +45,9 @@ function withRouter(Component) {
 
   return ComponentWithRouterProp;
 }
-export default connect(mapStateToProps, { profileAdd, profileAPI })(
-  withRouter(ProfileContainer)
-);
+export default connect(mapStateToProps, {
+  profileAdd,
+  profileAPI,
+  getStatusAPI,
+  updateStatusAPI,
+})(withRouter(ProfileContainer));

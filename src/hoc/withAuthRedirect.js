@@ -12,25 +12,13 @@ export const withAuthRedirect = (Component) => {
     render() {
       let sad = () => {
         if (!this.props.isAuth) {
-          // debugger;
           return <Navigate to="/login" />;
         } else {
-          // debugger;
           return <Component {...this.props} />;
         }
       };
-      // setTimeout(console.log("sad"), 1000);
 
       return sad();
-      // {
-      //   if (!this.props.isAuth) {
-      //     debugger;
-      //     return <Navigate to="/login" />;
-      //   } else {
-      //     // debugger;
-      //     return <Component {...this.props} />;
-      //   }
-      // }
     }
   }
 

@@ -11,7 +11,11 @@ const Profile = (props) => {
         <img src={fon} width="100%" height="150" className="content__img"></img>
       </div>
 
-      <ProfileInfo profile={props.profile} />
+      <ProfileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatusAPI={props.updateStatusAPI}
+      />
       <MyPostsContainer />
     </div>
   );

@@ -23,9 +23,14 @@ export const securityApi = {
   },
 };
 export const profileApi = {
-  getProfile(userId = 27491) {
-    // console.log(userId);
+  getProfile(userId) {
     return instance.get(`profile/${userId}`);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`);
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, { status });
   },
 };
 export const followingApi = {

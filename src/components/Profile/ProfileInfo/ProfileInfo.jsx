@@ -5,25 +5,42 @@ import s from "./ProfileInfo.module.css";
 class ProfileInfo extends React.Component {
   state = {
     editMode: false,
-    status: this.props.profile.aboutMe,
-    // debugger
+    status: this.props.status,
   };
   activateEditMode() {
     this.setState({
       editMode: true,
     });
+    // debugger
   }
   deactivateEditMode() {
     this.setState({
       editMode: false,
     });
+    this.props.updateStatusAPI(this.state.status);
+    // console.log("add redux");
+    // debugger
+  }
+  onStatusChange = (e) => {
+    // debugger;
+    this.setState({
+      status: e.currentTarget.value,
+    });
+  };
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(prevProps);
+    if (prevProps.status !== this.props.status) {
+      this.setState({ status: this.props.status });
+      // debugger;
+    }
+    // console.log("componentDidUpdate");
   }
   render() {
+    // debugger;
+    // console.log("render");
     if (!this.props.profile) {
       return <Preloader />;
     }
-    // console.log(this.state.editMode);
-    // debugger;
     return (
       <div className={s.profile}>
         <div className={s["profile__bl-photo"]}>
@@ -43,7 +60,7 @@ class ProfileInfo extends React.Component {
                   onDoubleClick={this.activateEditMode.bind(this)}
                   className="sad_2"
                 >
-                  {this.state.status}
+                  {this.props.status || "-----"}
                 </span>
               </div>
             )}
@@ -52,8 +69,9 @@ class ProfileInfo extends React.Component {
                 <input
                   autoFocus
                   onBlur={this.deactivateEditMode.bind(this)}
-                  value={this.state.status}
+                  onChange={this.onStatusChange}
                   className="sad_2"
+                  value={this.state.status}
                 ></input>
               </div>
             )}

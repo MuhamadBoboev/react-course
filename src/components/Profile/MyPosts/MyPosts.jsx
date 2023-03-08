@@ -21,6 +21,8 @@ const MyPosts = (props) => {
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.onPostChanged(text);
+    console.log("onPostChanged");
+    debugger;
   };
   return (
     <div className={s.post}>
