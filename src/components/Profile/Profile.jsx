@@ -1,7 +1,8 @@
 import React from "react";
 import fon from "../../fon.jpg";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+// import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import ProfileInfoFormHooks from "./ProfileInfo/ProfileInfoFormHooks";
 const Profile = (props) => {
   // debugger;
 
@@ -11,7 +12,7 @@ const Profile = (props) => {
         <img src={fon} width="100%" height="150" className="content__img"></img>
       </div>
 
-      <ProfileInfo
+      <ProfileInfoFormHooks
         profile={props.profile}
         status={props.status}
         updateStatusAPI={props.updateStatusAPI}

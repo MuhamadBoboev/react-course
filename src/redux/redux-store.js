@@ -4,13 +4,14 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
+import { Form, Formik } from "formik";
 
 let reducers = combineReducers({
   profilePage: profileReducer,
   dialogsPage: dialogsReducer,
   usersPage: usersReducer,
   auth: authReducer,
-  // form: Formik,
+  forms: Form,
 });
 const store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));
 
